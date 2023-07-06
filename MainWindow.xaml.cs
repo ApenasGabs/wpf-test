@@ -12,12 +12,10 @@ namespace Teste_Toolkit
     public MainWindow()
     {
       InitializeComponent();
-      // Register a message in some module
       WeakReferenceMessenger.Default.Register<OpenWindowMessage>(this, (r, m) =>
       {
         var fw = new Teste_Toolkit.ContatoWindow();
 
-        // Passa o contato
         fw.DataContext = m.Value;
 
         fw.ShowDialog();

@@ -9,25 +9,18 @@ namespace Teste_Toolkit.ViewModel
 {
   public class ListaContatoViewModel : ObservableObject
   {
-    // Coleção de Objetos
     public ObservableCollection<Contato> listaContato { get; set; }
 
-    // Contato selecionado
     private Model.Contato _contatoSelecionado;
 
-    // Objeto que lida com o comando novo
     public RelayCommand Novox { get; set; }
 
-    // Objeto que lida com o comando deletar
     public RelayCommand Deletarx { get; set; }
 
-    // Objeto que lida com o comando editar
     public RelayCommand Editarx { get; set; }
 
-    // Objeto que lida com o comando sair
     public RelayCommand Sairx { get; set; }
 
-    // Executa comando de novo contato
     private void NovoCMD()
     {
       var contatoViewModel = new EditaContatoViewModel();
@@ -40,7 +33,6 @@ namespace Teste_Toolkit.ViewModel
       }
     }
 
-    // Executa comando deletar
     private void DeletarCMD()
     {
       this.listaContato.Remove(this.ContatoSelecionado);
@@ -50,7 +42,6 @@ namespace Teste_Toolkit.ViewModel
         this.ContatoSelecionado = null;
     }
 
-    // Executa comando editar
     private void EditarCMD()
     {
       var contatoViewModel = new EditaContatoViewModel();
@@ -69,25 +60,21 @@ namespace Teste_Toolkit.ViewModel
       }
     }
 
-    // Executa comando sair
     private void SairCMD()
     {
       System.Windows.Application.Current.Shutdown();
     }
 
-    //Executa can deletar
     private bool CanDeletarCMD()
     {
       return this.ContatoSelecionado != null;
     }
 
-    //Executa can deletar
     private bool CanEditarCMD()
     {
       return this.ContatoSelecionado != null;
     }
 
-    // Quando o selecionado muda notificar CanExecute dos botões Editar e Deletar
     public Contato? ContatoSelecionado
     {
       get { return _contatoSelecionado; }
@@ -100,7 +87,6 @@ namespace Teste_Toolkit.ViewModel
     }
 
 
-    // Construtor
     public ListaContatoViewModel()
     {
       Novox = new RelayCommand(NovoCMD);
@@ -142,7 +128,6 @@ namespace Teste_Toolkit.ViewModel
     }
   }
 
-  // Cria uma casse de messagem OpenWindowMessage
   public class OpenWindowMessage : ValueChangedMessage<EditaContatoViewModel>
   {
     public OpenWindowMessage(EditaContatoViewModel contatoViewModel) : base(contatoViewModel)
