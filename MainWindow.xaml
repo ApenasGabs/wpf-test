@@ -1,0 +1,24 @@
+﻿<Window x:Class="Teste_Toolkit.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Teste_Toolkit" mc:Ignorable="d" Title="ContatoMVVM" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Margin="3" Padding="3" CommandParameter="{Binding}" Command="{Binding Novox}" Content="Novo"/>
+            <Button Margin="3" Padding="3" CommandParameter="{Binding}" Command="{Binding Editarx}" Content="Editar"/>
+            <Button Margin="3" Padding="3" CommandParameter="{Binding}" Command="{Binding Deletarx}" Content="Deletar"/>
+            <Button Margin="3" Padding="3" IsCancel="true" Command="{Binding Sairx}" Content="Sair"/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
+            <DataGrid ItemsSource="{Binding listaContato}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding ContatoSelecionado}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
+                    <DataGridTextColumn Header="Sobrenome" Binding="{Binding Sobrenome}"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                    <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</Window>
