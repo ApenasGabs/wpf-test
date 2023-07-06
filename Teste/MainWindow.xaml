@@ -4,17 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Teste"
+        xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid RenderTransformOrigin="0.5,0.5">
-        <Grid.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <RotateTransform Angle="-0.318"/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </Grid.RenderTransform>
+        Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True" Background="{x:Null}">
+    <Grid  Background="{x:Null}">
+        <materialDesign:Card Margin="10" UniformCornerRadius="20" Background="{x:Null}">
+            
+            
+        </materialDesign:Card>
 
     </Grid>
 </Window>
